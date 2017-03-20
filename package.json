@@ -1,0 +1,23 @@
+{
+  "name": "udacity-website-optimization",
+  "description": "Website Performance Optimization portfolio project",
+  "homepage": "https://github.com/brenopolanski/udacity-website-optimization#readme",
+  "version": "1.0.0",
+  "author": {
+    "name": "Breno Polanski",
+    "email": "breno.polanski@gmail.com",
+    "web": "http://brenopolanski.com",
+    "twitter": "brenopolanski"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brenopolanski/udacity-website-optimization.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brenopolanski/udacity-website-optimization/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
