@@ -44,7 +44,7 @@ $ gulp
 - Used Gulp to:
   * Minify HTML;
   * Minify CSS and merged;
-  * Minify JS and merged;
+  * Minify JS;
   * Compress images files.
 
 ### Part 2: Optimize Frames per Second in `pizza.html`

@@ -8,7 +8,7 @@ var paths   = require('../paths');
 
 // Call HTML
 module.exports = gulp.task('html', function() {
-  return gulp.src(paths.source.html_files)
+  return gulp.src(paths.source.html)
     .pipe(plumber())
     .pipe(htmlmin({
       collapseWhitespace: true,

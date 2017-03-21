@@ -2,10 +2,14 @@
 
 module.exports = {
   source: {
-    html_files: './src/**/*.html',
+    html: './src/**/*.html',
     css: './src/css/**/*.css',
     js: './src/js/**/*.js',
-    img: './src/img/**/*'
+    img: './src/img/**/*',
+    files: {
+      cssHome: ['./src/css/print.css', './src/css/style.css'],
+      cssPizza: ['./src/css/bootstrap-grid.css', './src/css/style-pizza.css']
+    }
   },
 
   browserSync: {

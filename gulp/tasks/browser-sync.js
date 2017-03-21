@@ -11,8 +11,7 @@ module.exports = gulp.task('browser-sync', function() {
     paths.browserSync.html,
     paths.browserSync.css,
     paths.browserSync.js,
-    paths.browserSync.img,
-    paths.browserSync.views
+    paths.browserSync.img
   ];
 
   browserSync.init(files, {

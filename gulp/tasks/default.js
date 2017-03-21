@@ -4,4 +4,5 @@
 var gulp = require('gulp');
 
 // Default task
-module.exports = gulp.task('default', ['html', 'css', 'browser-sync']);
+module.exports = gulp.task('default', ['html', 'css', 'js', 'imagemin',
+  'watch', 'browser-sync']);
