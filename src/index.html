@@ -6,18 +6,10 @@
     <meta name="description" content=" FILL ME IN ">
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
-
-    <!-- Let's defer the loading of stylesheets -->
-    <noscript id="deferred-styles">
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
-      <!-- Reference the new merged and minified css file -->
-      <link rel="stylesheet" href="css/style.css">
-    </noscript>
   </head>
-
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg" width="70" height="70" alt="Profile picture"></a>
+      <a href="index.html"><img src="img/profilepic.jpg" width="70" height="70" alt="Profile picture"></a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 
@@ -29,25 +21,25 @@
       <div class="content">
         <ul>
           <li>
-            <img src="https://lh4.ggpht.com/kJEnfqhPvtm4m3EneSZ4fWYGS8lW4YNhEjk6zPkyrQaBUHc-2Y_ElDic99NHI0h-UBLXVbRCjFybFvrWxdk=s100" width="100" height="50" alt="Build Your Own 2048!">
+            <img src="img/thumb_2048.jpg" width="100" height="50" alt="Build Your Own 2048!">
             <a href="project-2048.html">Build Your Own 2048!</a>
             <p>I made my own version of 2048. How cool is that!?</p>
           </li>
 
           <li>
-            <img src="https://lh6.ggpht.com/f_0W8h__3G99CWTjnMjD8BUKm7yp2-wJyApLtTwFoFtlal2ULf_JgHIsOQq2NiYfKOdMlXlMHDKNo5XVZLs=s100" width="100" height="62" alt="Website Performance Optimization">
+            <img src="img/thumb_webperf.jpg" width="100" height="62" alt="Website Performance Optimization">
             <a href="project-webperf.html">Website Performance Optimization</a>
             <p>Hey... this class looks familiar.</p>
           </li>
 
           <li>
-            <img src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100" width="100" height="61" alt="Mobile Web Development">
+            <img src="img/thumb_mobile.jpg" width="100" height="61" alt="Mobile Web Development">
             <a href="project-mobile.html">Mobile Web Development</a>
             <p>Making mobile apps isn't so hard after all.</p>
           </li>
 
           <li>
-            <img src="img/pizzeria_thumb.jpg" width="100" height="75" alt="Cam's Pizzeria">
+            <img src="img/thumb_pizzeria.jpg" width="100" height="75" alt="Cam's Pizzeria">
             <a href="pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
@@ -59,17 +51,27 @@
       </footer>
     </div>
 
-    <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // Optional TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
-    <script async src="http://www.google-analytics.com/analytics.js"></script>
+    <!-- Let's defer the loading of stylesheets -->
+    <noscript id="deferred-styles">
+      <!-- Reference the new merged and minified css file -->
+      <link rel="stylesheet" href="css/style.css">
+    </noscript>
     <script async src="js/perfmatters.js"></script>
     <script>
+      WebFontConfig = {
+        google: {
+          families: ['Open Sans:400,700']
+        }
+      };
+
+      // Use Web Font Loader asynchronously
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+
       var loadDeferredStyles = function() {
         var addStylesNode = document.getElementById("deferred-styles");
         var replacement = document.createElement("div");

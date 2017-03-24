@@ -50,6 +50,8 @@ form {
 /* add will-change: transform */
 /* add transform: translateZ(0); */
 .randomPizzaContainer {
+  width:33.33%;
+  height: 325px;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: transform;
@@ -68,4 +70,12 @@ form {
 
  .container {
   background-color: rgba(240, 60, 60, 0.8);
+}
+
+.img-pizza-box {
+  width: 35%;
+}
+
+.title-pizza-box {
+  width: 65%;
 }

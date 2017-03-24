@@ -429,12 +429,12 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
-  document.querySelector("#pizzaSize").innerHTML = pizzaSizes[size];
+  document.getElementById("pizzaSize").innerHTML = pizzaSizes[size];
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -451,7 +451,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < pizzas.length; i++) {
+    for (var i = 0, lenPizzas = pizzas.length; i < lenPizzas; i++) {
       pizzas[i].style.width = newwidth;
     }
   }
@@ -468,13 +468,14 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// Move var pizzasDiv = document.getElementById("randomPizzas"); out of the for loop so the loop only makes one DOM call
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
 // Store the generated pizzas in an array
-pizzas = document.querySelectorAll(".randomPizzaContainer");
+pizzas = document.getElementsByClassName("randomPizzaContainer");
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
@@ -505,7 +506,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var phasesArray = phases[document.body.scrollTop];
-  for (var i = 0; i < slidingPizzas.length; i++) {
+  for (var i = 0, lenSlidingPizzas = slidingPizzas.length; i < lenSlidingPizzas; i++) {
     var phase = phasesArray[i % 5];
     slidingPizzas[i].style.left = slidingPizzas[i].basicLeft + 100 * phase + 'px';
   }
@@ -532,7 +533,7 @@ function precalcPhases() {
       phases[i].push(Math.sin((i / 1250) + j));
     }
   }
-};
+}
 
 // Run the precalcPhases to fill the phases array.
 precalcPhases();
@@ -540,20 +541,33 @@ precalcPhases();
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
+  var rows = 6;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
+  var totalPizzas = 36;
+  // Declare var elem outside the loop to prevent it being created each iteration
+  var elem;
+  // Declare movingPizzas outside the for loop to prevent a DOM call on each iteration
+  // Replace "querySelector" with getElementById
+  var movingPizzas = document.getElementById('movingPizzas1');
+  // calculate cols and rows based on browser window size
+  // credit https://github.com/uncleoptimus/udacityP4/blob/gh-pages/views/js/main.js
+  cols = Math.ceil(window.innerWidth / (256 - 73.33));
+  rows = Math.ceil(window.innerHeight / 256);
+  totalPizzas = cols * rows;
+
+  for (var i = 0; i < totalPizzas; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
 
   // Store the sliding pizzas in one array to avoid further queries
-  slidingPizzas = document.querySelectorAll('.mover');
+  slidingPizzas = document.getElementsByClassName('mover');
 
   updatePositions();
 });
