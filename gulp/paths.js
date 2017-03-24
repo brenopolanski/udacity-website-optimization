@@ -24,5 +24,9 @@ module.exports = {
     css: './dist/css/',
     js: './dist/js/',
     img: './dist/img/'
+  },
+
+  deploy: {
+    pages: './dist/**/*'
   }
 };

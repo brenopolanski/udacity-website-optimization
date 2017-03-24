@@ -31,7 +31,8 @@ $ gulp
 - `gulp js`: Execute js files;
 - `gulp imagemin`: Compress image files;
 - `gulp watch`: Call for watch files;
-- `gulp browser-sync`: Serve files from `/www/`.
+- `gulp browser-sync`: Serve files from `/www/`;
+- `gulp deploy`: Deploy compiled files at `dist/` to github on branch `gh-pages`.
 
 ## Optimizations Performed
 
