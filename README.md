@@ -57,8 +57,8 @@ $ gulp
 - Changed `querySelectorAll` to `getElementsByClassName()`;
 - Set number of pizzas to 36 in `document.addEventListener('DOMContentLoaded', function()`;
 - Lots of arrays and dictionaries were created on the top of the script to store everything that could be precalculated, like the sliding pizzas elements, the phases values, the random pizzas elements, the pizza sizes texts, and the percentual pizza size;
-- The resizePizzas function was changed to avoid requering the DOM elements and the new width calculation was moved to outside the loop, to improve the computational complexity;
-- The updatePositions function was changed to use the sliding pizzas array and the phases precalculated values, instead of quering them and calculating them on each iteration;
+- The `resizePizzas` function was changed to avoid requering the DOM elements and the new width calculation was moved to outside the loop, to improve the computational complexity;
+- The `updatePositions` function was changed to use the sliding pizzas array and the phases precalculated values, instead of quering them and calculating them on each iteration;
 - Move `var pizzasDiv = document.getElementById("randomPizzas");` out of the for loop so the loop only makes one DOM call;
 - Declare `var elem` outside the loop to prevent it being created each iteration;
 - Declare `var movingPizzas` outside the for loop to prevent a DOM call on each iteration;
