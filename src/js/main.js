@@ -498,24 +498,24 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 var items = document.getElementsByClassName('mover');
 
 function updatePositions() {
-    frame++;
-    window.performance.mark("mark_start_frame");
+  frame++;
+  window.performance.mark("mark_start_frame");
 
-    // Assigning this variable helped to reduce the FSLs incurred on the page
-    var phasemath = document.body.scrollTop / 1250;
-    for (var i = 0, lenItems = items.length; i < lenItems; i++) {
-        var phase = Math.sin((phasemath) + (i % 5));
-        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    }
+  // Assigning this variable helped to reduce the FSLs incurred on the page
+  var phasemath = document.body.scrollTop / 1250;
+  for (var i = 0, lenItems = items.length; i < lenItems; i++) {
+    var phase = Math.sin((phasemath) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
 
-    // User Timing API to the rescue again. Seriously, it's worth learning.
-    // Super easy to create custom metrics.
-    window.performance.mark("mark_end_frame");
-    window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-    if (frame % 10 === 0) {
-        var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
-        logAverageFrame(timesToUpdatePosition);
-    }
+  // User Timing API to the rescue again. Seriously, it's worth learning.
+  // Super easy to create custom metrics.
+  window.performance.mark("mark_end_frame");
+  window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+  if (frame % 10 === 0) {
+    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+    logAverageFrame(timesToUpdatePosition);
+  }
 }
 
 // runs updatePositions on scroll
